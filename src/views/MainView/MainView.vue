@@ -94,7 +94,7 @@ const getEventDate = (event) => {
                     
                 </article>
                 <article style="width: 50%; padding: 15px">
-                    <img :src="'src/assets/' + event.img + '.png'" style="object-fit: cover;" height="100%" width="100%">
+                    <img :src="'https://s3.twcstorage.ru/136703eb-05e89941-0f10-4e65-b543-d67d43f62dea/' + event.img + '.png'" style="object-fit: cover;" height="100%" width="100%">
                     <!-- <img src="../../assets/AlexandrowImg.png" style="border: 1px solid black;" height="100%" width="100%"> -->
                      <span class="event_date">{{ getEventDate(event) }}</span>
                 </article>
