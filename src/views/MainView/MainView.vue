@@ -54,7 +54,7 @@ const getEventDate = (event) => {
 <template>
     <main class="main">
         <section class="mainText">
-            <img src="../../assets/mainNameText.svg">
+            <img src="../../assets/MainNameText.svg">
             <img src="../../assets/TwoMainText.svg">
         </section>
         <section class="aboutFestival">
