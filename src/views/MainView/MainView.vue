@@ -33,7 +33,10 @@ document.addEventListener("DOMContentLoaded", () => {
     observer.observe(element); // Наблюдаем за каждым элементом
   });
 });
-
+const getEvents = computed(() => {
+        let day_counter = 0;
+        return events.value.map((el,) => { el = {...el, day_counter: day_counter}; day_counter += 1; console.log(el); return el})
+})
 const day_counter = ref(0)
 const getEventDate = (event) => {
             // maninamev:'Николай Александров',
@@ -79,7 +82,7 @@ const getEventDate = (event) => {
             <RoadMap></RoadMap>
         </section>
         <section style="background-color: #303030; width: 100%; padding: 100px; display: flex; flex-direction: column; gap: 40px">
-            <section v-for="event in events.map((el,) => { el = {...el, day_counter: day_counter}; day_counter += 1; console.log(el); return el})" :class="{lefte: event.day_counter % 2 == 0, righte: event.day_counter % 2 != 0}" :key="event.name" class="event_block">
+            <section v-for="event in getEvents" :class="{lefte: event.day_counter % 2 == 0, righte: event.day_counter % 2 != 0}" :key="event.name" class="event_block">
                 <article style="width: 50%;" class='event_text_block'>
                     <h2 class="event_amin_name">{{ event.maninamev.toUpperCase() }} <br> <span class="event_time">{{ event.time }}</span> </h2>
                     <article>

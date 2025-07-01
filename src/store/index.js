@@ -2,7 +2,7 @@ import { ref, computed } from 'vue'
 import { defineStore } from 'pinia'
 
 export const useEventsStore = defineStore('events', () => {
-
+    
     const events = ref([
         {
             maninamev:'Николай Александров',
@@ -166,7 +166,7 @@ export const useEventsStore = defineStore('events', () => {
             img: 'LVGGI'
         }
     ])
-
+    
     return {
         events
     }
