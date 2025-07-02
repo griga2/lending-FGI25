@@ -3,6 +3,9 @@ import { defineStore } from 'pinia'
 
 export const useEventsStore = defineStore('events', () => {
     
+
+    const aboutEvents = ref(null);
+    const aboutFestival = ref(null);
     const events = ref([
         {
             maninamev:'Николай Александров',
@@ -168,6 +171,8 @@ export const useEventsStore = defineStore('events', () => {
     ])
     
     return {
-        events
+        events,
+        aboutEvents,
+        aboutFestival,
     }
 })

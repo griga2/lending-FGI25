@@ -1,7 +1,7 @@
 <script setup>
-import { ref, computed, provide, onMounted } from 'vue'
+import { ref, computed, onMounted } from 'vue'
 import { defineStore } from 'pinia'
-import RoadMap from './components/RoadMap.vue';
+import MobileRoadMap from './components/MobileRoadMap.vue';
 import { storeToRefs } from 'pinia'
 import {useEventsStore} from '../../store/index.js'
 
@@ -20,6 +20,8 @@ onMounted(() => {
     aboutEvents.value = aboutEventsr;
     aboutFestival.value = aboutFestivalr;
 })
+
+
 
 document.addEventListener("DOMContentLoaded", () => {
   const animatedElements = document.querySelectorAll(".event_block");
@@ -46,7 +48,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 const getEvents = computed(() => {
         let day_counter = 0;
-        return events.value.map((el,) => { el = {...el, day_counter: day_counter}; day_counter += 1; return el})
+        return events.value.map((el,) => { el = {...el, day_counter: day_counter}; day_counter += 1; console.log(el); return el})
 })
 const day_counter = ref(0)
 const getEventDate = (event) => {
@@ -68,12 +70,12 @@ const getEventDate = (event) => {
 <template>
     <main class="main">
         <section class="mainText">
-            <img src="../../assets/MainNameText.svg">
-            <img src="../../assets/TwoMainText.svg">
+            <img src="../../assets/MobileMainNameText.svg">
+            <img src="../../assets/MobileTwoMainText.svg">
         </section>
         <section class="aboutFestival" ref="aboutFestivalr">
-            <article style="display: flex; padding: 200px 200px 0px 200px; flex-direction: column; gap: 200px;" class="left">
-                <h2> О фестивале</h2>
+            <article style="display: flex; flex-direction: column; gap: 70px;" class="left">
+                <h2 style="margin-top: 90px;"> О фестивале</h2>
                 <p style="word-wrap: break-word;">
                     Фестиваль городских историй «Трамвай 13» – летний проект, посвященный исследованию Новосибирска через призму литературы и искусства. Центральная площадка фестиваля – Книжное пространство в сквере «Тринадцатый трамвай». 
                 </p>
@@ -85,17 +87,17 @@ const getEventDate = (event) => {
                 </p>
             </article>
             <article class="right">
-                <img src="../../assets/image1.jpg" width="900px" alt="">
+                <img src="../../assets/image1.jpg" width="390px" alt="" style="position: relative; right: -150px;">
             </article>
         </section>
         <section ref="aboutEventsr" style="height: 150px;">
 
         </section>
-        <h2 >Программа мероприятий</h2>
-        <section >
-            <RoadMap></RoadMap>
+        <h2>Программа мероприятий</h2>
+        <section>
+            <MobileRoadMap></MobileRoadMap>
         </section>
-        <section style="background-color: #303030; width: 100%; padding: 100px; display: flex; flex-direction: column; gap: 40px">
+        <section style="background-color: #303030; padding-top: 20px; width: 100%; gap:20px; display: flex; flex-direction: column; ">
             <section v-for="event in getEvents" :class="{lefte: event.day_counter % 2 == 0, righte: event.day_counter % 2 != 0}" :key="event.name" class="event_block">
                 <article style="width: 50%;" class='event_text_block'>
                     <h2 class="event_amin_name">{{ event.maninamev.toUpperCase() }} <br> <span class="event_time">{{ event.time }}</span> </h2>
@@ -124,46 +126,13 @@ const getEventDate = (event) => {
             </article>
         </section> -->
 
-        <section>
+        <section style="margin-bottom: 50px;">
             <h2>
                 Спонсоры фестиваля
                 
             </h2>
-            <img src="../../assets/Logs.svg">
+            <img src="../../assets/MobileLogs.svg">
         </section>
-
-        <footer>
-
-         <img src="../../assets/Frame 4237.svg" height="78">
-
-         <section class="bts_col">
-            <button>
-                Мы в телеграмме
-            </button>
-            <button>
-                Мы в вконтакте
-            </button>
-            <button>
-                Юридическая информация 
-            </button>
-        </section> 
-
-        <section class="bts_row">
-            <button>
-                О нас
-            </button>
-            <button>
-                Все мероприятия
-            </button>
-            <button>
-                Карта событий
-            </button>
-            <button>
-                Принять участие
-            </button>
-        </section>
-
-    </footer>
     </main>
     
 </template>
@@ -171,28 +140,28 @@ const getEventDate = (event) => {
 <style scoped>
 
 .event_name{
-    font-size: 35px;
+    font-size: 10px;
 }
 
 .event_amin_name{
-    font-size: 58px;
+    font-size: 20px;
 }
 
 .event_time{
-    font-size: 90px;
+    font-size: 20px;
     margin-left: 10px;
     font-weight: 700;
     position: relative;
-    top: -20px;
-    left: -10px;
+    /* top: -20px; */
+    left: -10px; 
 }
 .event_date{
     position: relative;
     font-family: Montserrat Black;
     color: white;
-    font-size: 85px;
-    top: -85px;
-    left: 10px;
+    font-size: 30px;
+    top: -33px;
+    left: px;
     width: 300px;
     word-wrap: inherit;
 }
@@ -235,7 +204,7 @@ background-color: antiquewhite;
 }
 
 .event_desp_name{
-    font-size: 22px;
+    font-size: 10px;
     font-family: Montserrat Regular;
     font-weight: 200;
     margin-bottom: 15px;
@@ -260,7 +229,7 @@ footer button{
     background-color: white;
     border: none;
     font-family: Montserrat;
-    font-size: 15px;
+    font-size: 10px;
 }
 
 footer .bts_row{
@@ -286,8 +255,8 @@ footer .bts_col{
 
 .event_block{
     background-color: white;
-    height: 612px;
-    width: 975px;
+    height: 212px;
+    width: 370px;
     display: flex;
 }
 
@@ -297,9 +266,9 @@ footer .bts_col{
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 70vh;
-    margin-bottom: 200px;
-    margin-top: 200px;
+    height: 80vh;
+    margin-bottom: 20px;
+    margin-top: 20px;
 }
 
 main{
@@ -307,7 +276,7 @@ main{
     flex-direction: column;
     align-items: center;
     justify-content: start;
-    gap: 100px;
+    gap: 20px;
     overflow-x: hidden;
     width: 100%;
     padding: 0px;
@@ -318,29 +287,30 @@ main{
     display: flex;
     flex-direction: row;
     align-items: start;
-    margin-bottom: 200px;
+    margin-bottom: 20px;
 }
 
 .aboutFestival .left{
-    width: calc(50% - 400px);
+    width: calc(70vw - 40px);
     display: flex; 
     flex-direction: column;
     align-items: start;
     justify-content: center;
+    padding-left: 40px
 }
 
 h2{
     font-family: Montserrat Black;
-    font-size: 45px;
+    font-size: 22px;
 }
 
 p{
     font-family: Montserrat regular;
-    font-size: 28px;
+    font-size: 10px;
 }
 
 .aboutFestival .right{
-    width: calc(50%); 
+    width: calc(30vw); 
     display: flex; 
     flex-direction: column;
     align-items: center;

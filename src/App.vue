@@ -4,7 +4,15 @@ import { useRouter } from 'vue-router';
 
 const router = useRouter();
 onMounted(() => {
-  router.push('/main')
+  const mobile = navigator.maxTouchPoints > 0 && 'orientation' in window
+  
+  if (mobile) {
+    router.push('/mobail');
+  } else {
+    // alert('pc')
+    router.push('/main');
+
+  }
 })
 </script>
 

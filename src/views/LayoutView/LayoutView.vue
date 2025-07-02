@@ -1,23 +1,41 @@
 <script setup>
+import { inject, onMounted } from 'vue';
+import { useEventsStore } from '../../store/index.js'
+import { storeToRefs } from 'pinia';
+const mobile = navigator.maxTouchPoints > 0 && 'orientation' in window
+const store = useEventsStore();
+const {
+    aboutEvents,
+    aboutFestival
+} = storeToRefs(store);
 
+
+const scrollToSection = (section) =>  {
+      let element;
+      if(section == 'aboutEvents') element = aboutEvents.value;
+      if(section == 'aboutFestival') element = aboutFestival.value;
+      console.log(element, 'scroll')
+
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth',  });
+      }
+    }
 </script>
 
 <template>
-    <header>
-        <img src="../../assets/Frame 4237.svg" height="78">
+    <header :style="{ height: !mobile? '120px' : '60px', padding: mobile? '5px' : '20px',}">
+        <img src="../../assets/Frame 4237.svg" :style="{ height:!mobile? '72px' : '42px'}">
 
         <section class="bts_row">
-            <button>
+            <button @click="scrollToSection('aboutFestival')" :style="{
+                'font-size': !mobile? '15px' : '8px',
+            }">
                 О нас
             </button>
-            <button>
-                Все мероприятияr
-            </button>
-            <button>
-                Карта событий
-            </button>
-            <button>
-                Принять участие
+            <button @click="scrollToSection('aboutEvents')" :style="{
+                'font-size': !mobile? '15px' : '8px',
+            }">
+                Все мероприятия
             </button>
         </section>
     </header>
@@ -28,9 +46,8 @@
 <style scoped>
 
 header{
-    width: calc(100vw - 60px);
-    height: 120px;
-    padding: 30px;
+    width: calc(100vw );
+    /* height: 120px; */
     
     display: flex;
     flex-direction: row;
@@ -49,13 +66,13 @@ button{
     background-color: white;
     border: none;
     font-family: Montserrat;
-    font-size: 15px;
 }
 
 .bts_row{
     display: flex;
     flex-direction: row;
     gap: 20px;
+    margin-right: 60px
 }
 
 </style>
