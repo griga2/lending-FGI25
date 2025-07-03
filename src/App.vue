@@ -9,7 +9,7 @@ onMounted(() => {
   // alert(tg.initDataUnsafe?.user?.id)
   if (mobile) {
     router.push('/mobail');
-  } else aif (tg.initDataUnsafe?.user?.id) {
+  } else if (tg.initDataUnsafe?.user?.id) {
     router.push('/mobail');
   } else {
     // alert('pc')
