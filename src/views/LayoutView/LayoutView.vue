@@ -65,7 +65,7 @@ header{
 button{
     background-color: white;
     border: none;
-    font-family: Montserrat;
+    font-family: Montserrat-Regular;
 }
 
 .bts_row{

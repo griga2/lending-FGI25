@@ -157,7 +157,7 @@ const getEventDate = (event) => {
 }
 .event_date{
     position: relative;
-    font-family: Montserrat Black;
+    font-family: Montserrat-Black;
     color: white;
     font-size: 30px;
     top: -33px;
@@ -205,7 +205,7 @@ background-color: antiquewhite;
 
 .event_desp_name{
     font-size: 10px;
-    font-family: Montserrat Regular;
+    font-family: Montserrat-Regular;
     font-weight: 200;
     margin-bottom: 15px;
 }
@@ -228,7 +228,7 @@ footer{
 footer button{
     background-color: white;
     border: none;
-    font-family: Montserrat;
+    font-family: Montserrat-Regular;
     font-size: 10px;
 }
 
@@ -300,12 +300,12 @@ main{
 }
 
 h2{
-    font-family: Montserrat Black;
+    font-family: Montserrat-Black;
     font-size: 22px;
 }
 
 p{
-    font-family: Montserrat regular;
+    font-family: Montserrat-Regular;
     font-size: 10px;
 }
 

@@ -135,7 +135,7 @@ const formatDate = (date) => {
   top: 40px;
   left: 50%;
   transform: translateX(-50%);
-  font-family: 'Montserrat SemiBold';
+  font-family: Montserrat-SemiBold;
   white-space: nowrap;
 }
 
@@ -143,7 +143,7 @@ const formatDate = (date) => {
   font-size: 20px;
   color: #333;
   position: absolute;
-  font-family: 'Montserrat SemiBold';
+  font-family: Montserrat-SemiBold;
   top: 70px;
   left: 50%;
   transform: translateX(-50%);

@@ -188,7 +188,7 @@ const getEventDate = (event) => {
 }
 .event_date{
     position: relative;
-    font-family: Montserrat Black;
+    font-family: Montserrat-Black;
     color: white;
     font-size: 85px;
     top: -85px;
@@ -236,7 +236,7 @@ background-color: antiquewhite;
 
 .event_desp_name{
     font-size: 22px;
-    font-family: Montserrat Regular;
+    font-family: Montserrat-Regular;
     font-weight: 200;
     margin-bottom: 15px;
 }
@@ -330,12 +330,12 @@ main{
 }
 
 h2{
-    font-family: Montserrat Black;
+    font-family: Montserrat-Black;
     font-size: 45px;
 }
 
 p{
-    font-family: Montserrat regular;
+    font-family: Montserrat-Regular;
     font-size: 28px;
 }
 
