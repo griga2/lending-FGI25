@@ -5,8 +5,9 @@ import { useRouter } from 'vue-router';
 const router = useRouter();
 onMounted(() => {
   const mobile = navigator.maxTouchPoints > 0 && 'orientation' in window
-  
-  if (mobile) {
+  const tg = window.Telegram.WebApp;
+  alert(tg.initDataUnsafe?.user?.id)
+  if (mobile && tg.initDataUnsafe?.user?.id) {
     router.push('/mobail');
   } else {
     // alert('pc')
@@ -14,6 +15,7 @@ onMounted(() => {
 
   }
 })
+
 </script>
 
 <template>
